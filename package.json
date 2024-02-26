@@ -1,0 +1,32 @@
+{
+  "name": "reactdrill",
+  "version": "1.0.0",
+  "description": "npm package",
+  "scripts": {
+    "start": "parcel index.html",
+    "build": "parcel build index.html",
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/shubhiagrawal22/ReactDrill.git"
+  },
+  "keywords": [],
+  "author": "Shubhi Agrawal",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/shubhiagrawal22/ReactDrill/issues"
+  },
+  "homepage": "https://github.com/shubhiagrawal22/ReactDrill#readme",
+  "devDependencies": {
+    "parcel": "^2.11.0",
+    "process": "^0.11.10"
+  },
+  "dependencies": {
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
+  },
+  "browsersList" : [
+    "last 2 version"
+  ]
+}
