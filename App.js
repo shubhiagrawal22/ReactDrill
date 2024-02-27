@@ -1,36 +1,58 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 
+const Header = () => {
+    return (
+        <div className="header">
+            <div className="logo">
+                <img src="https://img.freepik.com/free-vector/food-shopping-logo-template-design_460848-10299.jpg" alt="logo" />
+            </div>
+            <div className="nav-items">
+                <ul>
+                    <li>Home</li>
+                    <li>About Us</li>
+                    <li>Contact</li>
+                    <li>Cart</li>
+                </ul>
+            </div>
+        </div>
+    )
+};
+
+const RestCard = () => {
+    return (
+        <div className="card">
+            <div className="card-img">
+                img
+            </div>
+        </div>
+    );
+};
+
+const Body = () => {
+    return (
+        <div className="body">
+            <div className="search">
+                search
+            </div>
+            <div className="rest-card">
+            <RestCard />
+            </div>
+
+        </div>
+    )
+}
 
 
-// const heading = React.createElement("h1", {
-//     id : "heading",
-//     xyz : "abc",
-// }, "Hola");
+const AppLayout = () => {
+    return (
+        <div className="app">
+            <Header />
+            <Body />
+        </div>
+    )
+}
 
-// const parent = React.createElement(
-//   "div",
-//   { id: "parent" },
-//   React.createElement(
-//     "div",
-//     { id: "child" },
-//     React.createElement("h1", { id: "heading" }, "hi this is h1")
-//   )
-// );
-
-//SIBLING
-
-const parent = React.createElement(
-  "div",
-  { id: "parent" },
-  React.createElement("div", { id: "child" }, [
-    React.createElement("h1", { id: "heading" }, "hi ReactDrill"),
-    React.createElement("h2", { id: "heading" }, "hi this is h2"),
-  ])
-);
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
-// root.render(heading);
-root.render(parent);
-
-console.log(parent);
+root.render(<AppLayout />);
