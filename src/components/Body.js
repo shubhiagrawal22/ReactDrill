@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import RestCard from "./RestCard";
 import Shimmer from "./Shimmer";
 import { MENU_API } from "../utils/constant";
+import { Link } from "react-router-dom";
 // import { resObj } from "../utils/constant";
 
 const Body = () => {
@@ -22,8 +23,12 @@ const Body = () => {
     const res = await fetch(MENU_API);
 
     const data = await res.json();
-    setRestList(data?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
-    setFilteredData(data?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
+    setRestList(
+      data?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants
+    );
+    setFilteredData(
+      data?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants
+    );
   };
 
   return restList.length === 0 ? (
@@ -59,7 +64,7 @@ const Body = () => {
       </div>
       <div className="rest-card">
         {filteredData.map((item) => (
-          <RestCard key={item.info.id} resData={item} />
+            <RestCard key={item.info.id} resData={item} />
         ))}
       </div>
     </div>
