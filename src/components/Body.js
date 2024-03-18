@@ -3,12 +3,14 @@ import RestCard from "./RestCard";
 import Shimmer from "./Shimmer";
 import { MENU_API } from "../utils/constant";
 import { Link } from "react-router-dom";
+import useOnlineStatus from "../utils/useOnlineStatus";
 // import { resObj } from "../utils/constant";
 
 const Body = () => {
   const [restList, setRestList] = useState([]);
   const [filteredData, setFilteredData] = useState([]);
   const [searchData, setSearchData] = useState("");
+  const onlineStatus = useOnlineStatus();
 
   const handleTopRest = () => {
     const filteredList = restList.filter((res) => res.avgRating > 4);
@@ -30,6 +32,10 @@ const Body = () => {
       data?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants
     );
   };
+
+  if (onlineStatus === false) {
+    return <h1>Looks Like you're offline ☹ Please check your internet</h1>
+  }
 
   return restList.length === 0 ? (
     <Shimmer />

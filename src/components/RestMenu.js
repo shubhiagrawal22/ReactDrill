@@ -1,24 +1,11 @@
-import { useEffect, useState } from "react";
 import Shimmer from "./Shimmer";
 import { useParams } from "react-router-dom";
-import { REST_API } from "../utils/constant";
+import useRestMenu from "../utils/useRestMenu";
 
 const RestMenu = () => {
-  const [restInfo, setRestInfo] = useState(null);
 
   const { resId } = useParams();
-
-  useEffect(() => {
-    fetchInfo();
-  }, []);
-
-  const fetchInfo = async () => {
-    const data = await fetch(REST_API + resId);
-
-    const json = await data.json();
-    setRestInfo(json);
-    //  console.log(json);
-  };
+  const restInfo = useRestMenu(resId);
 
   if (restInfo === null) return <Shimmer />;
 
