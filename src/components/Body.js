@@ -34,7 +34,7 @@ const Body = () => {
   };
 
   if (onlineStatus === false) {
-    return <h1>Looks Like you're offline ☹ Please check your internet</h1>
+    return <h1>Looks Like you're offline Please check your internet</h1>
   }
 
   return restList.length === 0 ? (
