@@ -12,11 +12,6 @@ const Body = () => {
   const [searchData, setSearchData] = useState("");
   const onlineStatus = useOnlineStatus();
 
-  const handleTopRest = () => {
-    const filteredList = restList.filter((res) => res.avgRating > 4);
-    setFilteredData(filteredList);
-  };
-
   useEffect(() => {
     fetchData();
   }, []);
@@ -33,26 +28,31 @@ const Body = () => {
     );
   };
 
+  const handleTopRest = () => {
+    const filteredList = restList.filter((res) => res?.info?.avgRating > 4);
+    setFilteredData(filteredList);
+  };
+
   if (onlineStatus === false) {
-    return <h1>Looks Like you're offline Please check your internet</h1>
+    return <h1>Looks Like you're offline Please check your internet</h1>;
   }
 
   return restList.length === 0 ? (
     <Shimmer />
   ) : (
     <div className="body">
-      <div className="filter">
+      <div className="filter p-4 m-4 flex">
         <div className="search">
           <input
             type="text"
-            className="search-input"
+            className="search-input border-2 border-black rounded-lg mx-2"
             value={searchData}
             onChange={(e) => {
               setSearchData(e.target.value);
             }}
           />
           <button
-            className="search-btn"
+            className="search-btn px-4 py-1 mx-2 bg-amber-300 rounded-xl hover:bg-black hover:text-white"
             onClick={() => {
               console.log(searchData);
               const searchList = restList.filter((res) =>
@@ -64,13 +64,16 @@ const Body = () => {
             Search
           </button>
         </div>
-        <button className="filter-btn" onClick={handleTopRest}>
+        <button
+          className="filter-btn px-4 py-1 mx-2 bg-amber-300 rounded-xl hover:bg-black hover:text-white"
+          onClick={handleTopRest}
+        >
           Top Rated Restaurant
         </button>
       </div>
-      <div className="rest-card">
+      <div className="rest-card flex flex-wrap justify-center">
         {filteredData.map((item) => (
-            <RestCard key={item.info.id} resData={item} />
+          <RestCard key={item.info.id} resData={item} />
         ))}
       </div>
     </div>

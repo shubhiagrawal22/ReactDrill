@@ -6,35 +6,39 @@ const Header = () => {
   const [loginBtn, setLoginBtn] = useState("Login");
 
   return (
-    <div className="header">
+    <div className="flex justify-between items-center bg-amber-300">
       <div className="logo">
-        <img src={LOGO_URL} alt="logo" />
+        <img className="w-24 m-4" src={LOGO_URL} alt="logo" />
       </div>
-      <div className="nav-items">
-        <ul>
+      <div className="nav-items font-medium">
+        <ul className="flex m-4 p-4">
           <li>
-            <Link to="/" className="nav-links">
+            <Link to="/" className="px-4 py-1 rounded-lg hover:bg-black hover:text-white">
               Home
             </Link>
           </li>
           <li>
-            <Link to="/about" className="nav-links">
+            <Link to="/about" className="px-4 py-1 rounded-lg hover:bg-black hover:text-white">
               About Us
             </Link>
           </li>
           <li>
-            <Link to="/contact" className="nav-links">
+            <Link to="/contact" className="px-4 py-1 rounded-lg hover:bg-black hover:text-white">
               Contact
             </Link>
           </li>
           <li>
-            <Link to="/grocery" className="nav-links">
+            <Link to="/grocery" className="px-4 py-1 rounded-lg hover:bg-black hover:text-white">
               Grocery
             </Link>
           </li>
-          <li>Cart</li>
+          <li>
+            <Link to="/" className="px-4 py-1 rounded-lg hover:bg-black hover:text-white">
+              Cart
+            </Link>
+          </li>
           <button
-            className="login-btn"
+            className="login-btn px-4 py-1 rounded-lg bg-black text-white hover:bg-amber-300 hover:text-black"
             onClick={() => {
               loginBtn === "Login"
                 ? setLoginBtn("Logout")
