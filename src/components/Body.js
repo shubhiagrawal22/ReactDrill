@@ -37,7 +37,7 @@ const Body = () => {
     return <h1>Looks Like you're offline Please check your internet</h1>;
   }
 
-  return restList.length === 0 ? (
+  return restList?.length === 0 ? (
     <Shimmer />
   ) : (
     <div className="body">
@@ -54,7 +54,6 @@ const Body = () => {
           <button
             className="search-btn px-4 py-1 mx-2 bg-amber-300 rounded-xl hover:bg-black hover:text-white"
             onClick={() => {
-              console.log(searchData);
               const searchList = restList.filter((res) =>
                 res.name.toLowerCase().includes(searchData.toLowerCase())
               );
@@ -72,7 +71,7 @@ const Body = () => {
         </button>
       </div>
       <div className="rest-card flex flex-wrap justify-center">
-        {filteredData.map((item) => (
+        {filteredData?.map((item) => (
           <RestCard key={item.info.id} resData={item} />
         ))}
       </div>
