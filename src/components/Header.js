@@ -1,9 +1,12 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { LOGO_URL } from "../utils/constant";
 import { Link } from "react-router-dom";
+import UserContext from "../utils/UserContext";
 
 const Header = () => {
   const [loginBtn, setLoginBtn] = useState("Login");
+
+  const { loggedInUser } = useContext(UserContext);
 
   return (
     <div className="flex justify-between items-center bg-amber-300">
@@ -37,6 +40,11 @@ const Header = () => {
               Cart
             </Link>
           </li>
+          <li>
+            <Link to="/user" className="px-4 py-1 font-bold rounded-lg hover:bg-black hover:text-white">
+              {loggedInUser}
+            </Link>
+          </li>
           <button
             className="login-btn px-4 py-1 rounded-lg bg-black text-white hover:bg-amber-300 hover:text-black"
             onClick={() => {
@@ -47,6 +55,7 @@ const Header = () => {
           >
             {loginBtn}
           </button>
+          
         </ul>
       </div>
     </div>

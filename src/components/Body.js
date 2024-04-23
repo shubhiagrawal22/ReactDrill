@@ -1,9 +1,10 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import RestCard from "./RestCard";
 import Shimmer from "./Shimmer";
 import { MENU_API } from "../utils/constant";
 import { Link } from "react-router-dom";
 import useOnlineStatus from "../utils/useOnlineStatus";
+import UserContext from "../utils/UserContext";
 // import { resObj } from "../utils/constant";
 
 const Body = () => {
@@ -11,6 +12,8 @@ const Body = () => {
   const [filteredData, setFilteredData] = useState([]);
   const [searchData, setSearchData] = useState("");
   const onlineStatus = useOnlineStatus();
+
+  const { loggedInUser, setUserName } = useContext(UserContext);
 
   useEffect(() => {
     fetchData();
@@ -69,6 +72,14 @@ const Body = () => {
         >
           Top Rated Restaurant
         </button>
+      </div>
+      <div className="filter p-4 m-4 flex">
+        <label>User name : </label>
+        <input
+          className="border-2 px-2 border-black mx-4"
+          value={loggedInUser}
+          onChange={(e) => setUserName(e.target.value)}
+        />
       </div>
       <div className="rest-card flex flex-wrap justify-center">
         {filteredData?.map((item) => (

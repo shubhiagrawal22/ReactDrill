@@ -18,7 +18,7 @@ const RestCard = (props) => {
       </div>
       <div className="card-name p-2">
         <h2 className="font-bold text-lg">{name}</h2>
-        <h4 className="font-medium">{cuisines.slice(0,2).join(", ")}</h4>
+        <h4 className="font-medium w-11/12 truncate">{cuisines.slice(0,2).join(", ")}</h4>
         <h4>{avgRating} star</h4>
         <h4>{costForTwo}</h4>
         <h4>{sla.deliveryTime} min</h4>
