@@ -97,3 +97,12 @@ const HeadingComp = () => {
 };
 
   -->
+
+
+# Redux-toolkit
+ - install package
+ - build store
+ - connect store to app
+ - slice(cart)
+ - dispatch (action)
+ - selector
