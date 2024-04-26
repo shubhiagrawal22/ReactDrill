@@ -15,9 +15,9 @@ const RestMenu = () => {
 
   const { name, cuisines, costForTwoMessage } =
     restInfo?.data?.cards[2]?.card?.card?.info;
-  const { itemCards } =
-    restInfo?.data?.cards[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards[2]?.card
-      ?.card;
+  // const { itemCards } =
+  //   restInfo?.data?.cards[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards[2]?.card
+  //     ?.card;
 
   const categories =
     restInfo?.data?.cards[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards.filter(
@@ -41,6 +41,7 @@ const RestMenu = () => {
             </div>
           </li>
         ))} */}
+
         {categories.map((item, index) => (
           <li>
             <div className="dish">
