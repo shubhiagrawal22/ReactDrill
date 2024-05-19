@@ -106,3 +106,14 @@ const HeadingComp = () => {
  - slice(cart)
  - dispatch (action)
  - selector
+
+
+# settings testing
+- installed react testing lib
+- install jest
+- install babel dependency required in jest
+- configured babel
+- config parcel to disable default babel config of parcel
+- jest config by npx jest --init
+-install jsdom
+-test is a function in which first arg is the description and second is implementation callback function which first has function call

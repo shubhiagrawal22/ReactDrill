@@ -31,6 +31,7 @@ const Body = () => {
     );
   };
 
+
   const handleTopRest = () => {
     const filteredList = restList.filter((res) => res?.info?.avgRating > 4);
     setFilteredData(filteredList);
@@ -58,8 +59,11 @@ const Body = () => {
             className="search-btn px-4 py-1 mx-2 bg-amber-300 rounded-xl hover:bg-black hover:text-white"
             onClick={() => {
               const searchList = restList.filter((res) =>
-                res.name.toLowerCase().includes(searchData.toLowerCase())
+                {
+                  res.info.name.toLowerCase().includes(searchData.toLowerCase());
+                }
               );
+
               setFilteredData(searchList);
             }}
           >
