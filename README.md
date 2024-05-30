@@ -117,3 +117,7 @@ const HeadingComp = () => {
 - jest config by npx jest --init
 -install jsdom
 -test is a function in which first arg is the description and second is implementation callback function which first has function call
+
+-install  @babel/preset-react to render jsx in test file
+-include  @babel/preset-react in babel config
+- npm i -D @testing-library/jest-dom 
